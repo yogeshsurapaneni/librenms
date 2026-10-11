@@ -111,7 +111,8 @@
             "LibreNMS\\Plugins\\": "html/plugins",
             "LibreNMS\\Tests\\": "tests",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "NmsApp\\": "packages/nms-app/src/"
         },
         "classmap": [
             "vendor/dapphp/radius"
@@ -179,5 +180,11 @@
         }
     ],
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/nms-app"
+        }
+    ]
 }

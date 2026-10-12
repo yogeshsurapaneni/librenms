@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use NmsApp\Http\Controllers\AlertController;
 use NmsApp\Http\Controllers\AssetController;
 use NmsApp\Http\Controllers\AuthMeController;
+use NmsApp\Http\Controllers\BrandController;
 use NmsApp\Http\Controllers\DeviceController;
 use NmsApp\Http\Controllers\EventlogController;
 use NmsApp\Http\Controllers\ReportController;
@@ -11,6 +12,11 @@ use NmsApp\Http\Controllers\SpaController;
 use NmsApp\Http\Controllers\StatusController;
 use NmsApp\Http\Controllers\SummaryController;
 use NmsApp\Http\Controllers\TopologyController;
+
+Route::middleware(['web'])->prefix('nms')->group(function () {
+    Route::get('brand/logo', [BrandController::class, 'logo']);
+    Route::get('brand/theme.css', [BrandController::class, 'theme']);
+});
 
 Route::middleware(['web', 'nms-auth'])->prefix('nms')->group(function () {
     Route::get('api/me', [AuthMeController::class, 'show']);

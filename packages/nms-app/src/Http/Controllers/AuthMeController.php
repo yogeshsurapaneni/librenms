@@ -4,6 +4,7 @@ namespace NmsApp\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use NmsApp\Support\Branding;
 
 class AuthMeController extends Controller
 {
@@ -18,6 +19,7 @@ class AuthMeController extends Controller
                 'username' => $user->username ?? $user->email,
                 'role' => $role,
             ],
+            'app' => Branding::payload(),
         ]);
     }
 }

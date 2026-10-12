@@ -13,7 +13,8 @@
 
         <div class="collapse navbar-collapse" id="navHeaderCollapse" style="max-height: calc(100vh - 50px)">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('nms/') }}"><i class="fa fa-heartbeat fa-fw fa-lg fa-nav-icons" aria-hidden="true"></i> <span class="tw:md:hidden tw:2xl:inline-block">Custom NMS</span></a></li>
+                {{-- nms-app-menu --}}
+                <li><a href="{{ url('nms/') }}"><i class="fa fa-heartbeat fa-fw fa-lg fa-nav-icons" aria-hidden="true"></i> <span class="tw:md:hidden tw:2xl:inline-block">{{ \App\Facades\LibrenmsConfig::get('project_name') }}</span></a></li>
 {{-- Overview --}}
                 <li class="dropdown">
                     <a href="{{ url('overview') }}" class="dropdown-toggle" data-hover="dropdown"

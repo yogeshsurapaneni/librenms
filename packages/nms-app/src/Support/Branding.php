@@ -34,7 +34,11 @@ class Branding
      */
     public static function osEnv(string $key): ?string
     {
-        foreach ([getenv($key), $_SERVER[$key] ?? null, $_ENV[$key] ?? null] as $v) {
+        $candidates = [getenv($key), $_SERVER[$key] ?? null, $_ENV[$key] ?? null];
+        if (function_exists('env')) {
+            $candidates[] = env($key);
+        }
+        foreach ($candidates as $v) {
             if (is_string($v) && $v !== '') {
                 return $v;
             }
